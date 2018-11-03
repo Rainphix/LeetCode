@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class Solution:
     def convert(self, s, numRows):
         """
@@ -26,13 +25,3 @@ if __name__ == "__main__":
     ans = s.convert("PAYPALISHIRING",3)
     print(ans)
     exit()
-=======
-class Solution:
-    def convert(self, s, numRows):
-        """
-        :type s: str
-        :type numRows: int
-        :rtype: str
-        """
-        
->>>>>>> eb70bef8345fcb2ba0b0e5c25a81918c6c191466
