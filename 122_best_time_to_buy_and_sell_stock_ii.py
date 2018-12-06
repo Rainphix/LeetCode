@@ -12,7 +12,6 @@ class Solution:
             if prices[i+1] > prices[i]:
                 spread = prices[i+1]-prices[i]
                 profit += spread
-
         return  profit
 
 if __name__ == '__main__':
