@@ -40,7 +40,7 @@ class Solution:
         # 每次操作完都要保证手上的钱最多
         #
         # 第二买入的钱为前一次卖出所获的钱
-        
+
         if not prices:
             return 0
 
