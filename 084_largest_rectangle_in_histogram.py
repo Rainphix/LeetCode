@@ -89,4 +89,4 @@ if __name__ == '__main__':
 
     s = Solution()
     ans = s.largestRectangleArea([5,5,5,7,1,1,5,2,7,6])
-    print(ans)
+    # print(ans）
