@@ -4,7 +4,6 @@ class Solution:
         :type heights: List[int]
         :rtype: int
         """
-
         # import copy
         #
         # left = 0
