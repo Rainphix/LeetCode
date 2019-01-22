@@ -18,7 +18,6 @@ class Solution:
             line += step
         return ''.join(arr)
 
-
 if __name__ == "__main__":
 
     s = Solution()
