@@ -40,16 +40,6 @@ class Solution(object):
                 string_origin = string_origin + i
 
         return max_string
-#
-# def huiwen(s):
-#
-#     l = len(s)
-#
-#     for i in range(l):
-#         if s[i] != s[l - i - 1]:
-#             return False
-#             break
-#     return True
 
 if __name__ == '__main__':
 
