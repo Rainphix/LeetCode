@@ -6,6 +6,7 @@ class Solution:
         :rtype: List[List[int]]
         """
         # 每次对target判断，target小于当前i的值时退出
+        # 用i连接
         candidates.sort()
         Solution.anslist = []
         self.recursion(candidates,target,0,[])
