@@ -45,9 +45,25 @@
 #                 res.append([num] + item)
 #         return res
 
-class Solution:
-    def getPermutation(self, n, k): # n:元素个数 k:第k个排列
-        return True
+
+
+class Solution: # 使用递归会轻易超时，利用n可以退出当前的第K的值
+    def getPermutation(self, n: 'int', k: 'int') -> 'str':
+        from math import factorial
+        ans = ""
+        nums = []
+        for i in range(1, n + 1):
+            nums.append(str(i))
+        while n:
+            actor = factorial(n-1)
+            i = (k-1) // actor
+            cur = nums.pop(i)
+            ans += cur
+            k -= actor * i
+            n -= 1
+        return ans
+
+
 
 if __name__ == '__main__':
 
