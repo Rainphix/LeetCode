@@ -13,6 +13,7 @@ class Solution:
                     return False
             return True
 
+
         def gen(cur):
             res = []
             for v in cur:
