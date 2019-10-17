@@ -5,7 +5,7 @@ class Solution:
         :type K: int
         :rtype: List[List[int]]
         """
-        
+
         # import math
         #
         # dict = {}
