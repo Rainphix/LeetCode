@@ -1,41 +1,24 @@
 class Solution:
     def equalSubstring(self, s: str, t: str, maxCost: int) -> int:
 
-        if maxCost == 0:
-            return 1
+        n = len(s)
+        record = []
+        for i in range(n):
+            record.append(abs(ord(t[i]) - ord(s[i])))
 
-        size = len(s)
-        list_s = list(s)
-        list_t = list(t)
-        sub = []
+        start, end = 0, 0
+        windowsum = 0
+        res = 0
+        for end in range(n):
+            # print windowsum, start, end, res
+            windowsum += record[end]
 
-        for i in range(0, size):
-            sub.append(abs(ord(list_s[i]) - ord(list_t[i])))
-        print(sub)
-        if maxCost >= sum(sub):
-            return size
-
-        start = 0
-        end = 0
-        maxsize = 0
-        current_cost = 0
-
-        while(end < size):
-            current_cost = current_cost + sub[end]
-            if current_cost == maxCost:
-                maxsize = end - start + 1 if maxsize < end - start + 1 else maxsize
-                current_cost = current_cost - sub[start]
-                start = start + 1
-                end = end + 1
-            elif current_cost > maxCost:
-                maxsize = end - start if maxsize < end - start else maxsize
-                current_cost = current_cost - sub[start]
-                start = start + 1
-                end = end + 1
-            else:
-                end = end + 1
-
-        return maxsize
+            while windowsum > maxCost:
+                res = max(res, end - start)
+                windowsum -= record[start]
+                start += 1
+        res = max(res, end - start + 1)
+        return res
 
 if __name__ == '__main__':
     s = "nfyvfrvrbinpwkepscnnzfyiuznrp"

@@ -1,28 +1,32 @@
 class Solution:
     def queensAttacktheKing(self, queens: List[List[int]], king: List[int]) -> List[List[int]]:
-        position_dict = {}
-        for n in range(8):
-            position_dict[n] = False
-        line_list = []
-        i = king[0]
-        j = king[1]
+        res = []
 
-        for n in queens:
-            if n[0] == i:
-                pass
-            if n[1] == j:
-                pass
-            if abs(n[0]-i) == abs(n[1]-j):
-                pass
+        def dfs(queens: List[List[int]], king: List[int], x: int, y: int, res: List):
 
-        return line_list
+            tmp_x, tmp_y = 0, 0
+            while True:
+                if king[0] + tmp_x >= 8 or king[0] + tmp_x < 0 or king[1] + tmp_y >= 8 or king[1] + tmp_y < 0:
+                    return
+                if [king[0] + tmp_x, king[1] + tmp_y] in queens:
+                    res.append([king[0] + tmp_x, king[1] + tmp_y])
+                    return
+                else:
+                    tmp_x += x
+                    tmp_y += y
+
+        dfs(queens, king, 1, 0, res)
+        dfs(queens, king, 0, 1, res)
+        dfs(queens, king, -1, 0, res)
+        dfs(queens, king, 0, -1, res)
+        dfs(queens, king, 1, -1, res)
+        dfs(queens, king, -1, 1, res)
+        dfs(queens, king, -1, -1, res)
+        dfs(queens, king, 1, 1, res)
+        return res
 
 if __name__ == '__main__':
     solve = Solution()
     queens = [[0, 1], [1, 0], [4, 0], [0, 4], [3, 3], [2, 4]]
     king = [0, 0]
     print(solve.queensAttacktheKing(queens, king))
-
-    laboratory = [1,0,0,0,0,0,0,0,0]
-    dormitory = [0,1,0,0,0,0,0,0,0]
-    refectory = [0,0,0,0,0,0,0,0,1]
